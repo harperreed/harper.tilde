@@ -9,4 +9,4 @@ url: "http://tilde.club"
 markdown: kramdown
 permalink: none
 
-exclude: tasks, Makefile
+exclude: ['tasks', 'Makefile','README.md','.gitignore']
