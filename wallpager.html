@@ -1,0 +1,25 @@
+---
+layout: default
+title: The tilde.club wall log
+---
+
+<p>Launch a wall message pager on the web!</p>
+
+
+<p><a id="pager" href="pager_window.html">Click here to launch the pager</a></p>
+
+  <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    $('#pager').click(function() {
+        console.log('yay');
+    //Set your 3 basic sizes and other options for the class names above - create more if needed
+        var popup1 = 'width=497,height=140,toolbar=0,menubar=0,status=0,scrollbars=1,resizable=1,left=20,top=20';
+        var popurl = $(this).attr('href');
+        //Create a "unique" name for the window using a random number
+        var popupName = Math.floor(Math.random()*10000001);
+        //Opens the pop-up window according to the specified specs
+        newwindow=window.open(popurl,popupName,popup1);
+        return false;
+    });
+</script>

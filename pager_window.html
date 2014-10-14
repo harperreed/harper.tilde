@@ -1,0 +1,31 @@
+---
+layout: blank
+
+---
+
+<link href="{{ "/css/cssConsole.css" | prepend: site.baseurl }}" type="text/css" rel="stylesheet">
+<script src="{{ "/css/cssConsole.min.js" | prepend: site.baseurl }}"></script>
+<style>
+body{
+    padding:0px;
+    margin: 0px;
+}
+</style>
+<pre id="log"></pre>
+
+  <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  $('body').cssConsole();
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('0bda5ff3614d31103bda');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+        $('#log').html(data.message)
+    });
+  </script>
