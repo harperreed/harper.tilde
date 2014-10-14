@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rsync -avz --exclude 'wall.json' --delete _site/ tilde.club:public_html

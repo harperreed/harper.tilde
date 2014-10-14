@@ -1,0 +1,23 @@
+---
+layout: default
+title: The tilde.club wall log
+---
+
+
+<p>A log of wall messages on the <a href="/">tilde.club</a> server. Updated every ~5 min</p>
+
+<ul id="walls">
+</ul>
+
+<script>
+$.getJSON( "wall.json", function( data ) {
+ 	var items = [];
+	items = data.reverse()
+  	var rand = data[Math.floor(Math.random() * data.length)];
+	$.each( items, function( i, l ){
+		li = $('<li>').html("<a href=\"/~"+l['name']+"\">" + l['name'] + "</a>: " + l['msg'])
+		$('#walls').append(li)
+	});
+});
+</script>
+

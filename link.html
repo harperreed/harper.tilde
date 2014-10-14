@@ -1,0 +1,29 @@
+---
+layout: blank
+---
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var action = getParameterByName('action');
+console.log(action);
+if (action == "random"){
+$.getJSON( "http://tilde.club/~danielbachhuber/club-sites.json", function( data ) {
+ 	var items = [];
+  	var rand = data[Math.floor(Math.random() * data.length)];
+	window.location.assign(rand['href']);
+});
+}else{
+    window.location.assign('join.html');
+
+}
+</script>
+
+
+

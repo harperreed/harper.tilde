@@ -1,0 +1,12 @@
+# Site settings
+title: "Harper Reed"
+email: harper@nata2.org
+description:
+baseurl: "/~harper"
+url: "http://tilde.club"
+
+# Build settings
+markdown: kramdown
+permalink: none
+
+exclude: tasks, Makefile
